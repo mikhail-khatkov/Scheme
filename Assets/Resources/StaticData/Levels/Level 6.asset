@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b80cb4d620240a68ae9895ac40d4ed6, type: 3}
+  m_Name: Level 6
+  m_EditorClassIdentifier: 
+  LevelKey: Level 6
+  DeviceSpawners:
+  - DeviceTypeId: 1
+    DeviceState: 0
+    TransformData:
+      Position:
+        X: 865
+        Y: 1801.1
+        Z: 0
+      Rotation:
+        X: -0
+        Y: -0
+        Z: -0
+        W: 1
+      LocalScale:
+        X: 0.82
+        Y: 0.82
+        Z: 0.82
+    CorrectDeviceTypes: 01000000
+  - DeviceTypeId: 1
+    DeviceState: 0
+    TransformData:
+      Position:
+        X: 865
+        Y: 1438.5
+        Z: 0
+      Rotation:
+        X: -0
+        Y: -0
+        Z: -0
+        W: 1
+      LocalScale:
+        X: 0.82
+        Y: 0.82
+        Z: 0.82
+    CorrectDeviceTypes: 01000000
+  - DeviceTypeId: 0
+    DeviceState: 1
+    TransformData:
+      Position:
+        X: 330
+        Y: 1519
+        Z: 0
+      Rotation:
+        X: -0
+        Y: -0
+        Z: -0
+        W: 1
+      LocalScale:
+        X: 0.82
+        Y: 0.82
+        Z: 0.82
+    CorrectDeviceTypes: 00000000
+  - DeviceTypeId: 2
+    DeviceState: 0
+    TransformData:
+      Position:
+        X: 636.9
+        Y: 1228.3
+        Z: 0
+      Rotation:
+        X: -0
+        Y: -0
+        Z: -0
+        W: 1
+      LocalScale:
+        X: 0.82
+        Y: 0.82
+        Z: 0.82
+    CorrectDeviceTypes: 02000000
+  InventoryItems:
+  - DeviceTypeId: 1
+    Count: 2
+  - DeviceTypeId: 2
+    Count: 1
+  ContentSprite: {fileID: 21300000, guid: bf05610373e8bff49ab82b22fe4eb43e, type: 3}
