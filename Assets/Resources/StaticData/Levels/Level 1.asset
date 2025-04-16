@@ -18,35 +18,49 @@ MonoBehaviour:
     DeviceState: 0
     TransformData:
       Position:
-        X: 952.7
-        Y: 1538.2
+        X: 0
+        Y: 0
         Z: 0
       Rotation:
-        X: -0
-        Y: -0
-        Z: -0
-        W: 1
+        X: 0
+        Y: 0
+        Z: 0
+        W: 0
       LocalScale:
-        X: 1
-        Y: 1
-        Z: 1
+        X: 0
+        Y: 0
+        Z: 0
+    RectTransformData:
+      AnchoredPosition: {x: 232.7, y: -1.8}
+      SizeDelta: {x: 275, y: 275}
+      AnchorMin: {x: 0.5, y: 0.5}
+      AnchorMax: {x: 0.5, y: 0.5}
+      Pivot: {x: 0.5, y: 0.5}
+    IsUIElement: 1
     CorrectDeviceTypes: 01000000
   - DeviceTypeId: 0
     DeviceState: 1
     TransformData:
       Position:
-        X: 486.2
-        Y: 1535.3
+        X: 0
+        Y: 0
         Z: 0
       Rotation:
-        X: -0
-        Y: -0
-        Z: -0
-        W: 1
+        X: 0
+        Y: 0
+        Z: 0
+        W: 0
       LocalScale:
-        X: 1
-        Y: 1
-        Z: 1
+        X: 0
+        Y: 0
+        Z: 0
+    RectTransformData:
+      AnchoredPosition: {x: -233.8, y: -4.7}
+      SizeDelta: {x: 275, y: 275}
+      AnchorMin: {x: 0.5, y: 0.5}
+      AnchorMax: {x: 0.5, y: 0.5}
+      Pivot: {x: 0.5, y: 0.5}
+    IsUIElement: 1
     CorrectDeviceTypes: 00000000
   InventoryItems:
   - DeviceTypeId: 1

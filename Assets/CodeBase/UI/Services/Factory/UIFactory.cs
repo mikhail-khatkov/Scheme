@@ -67,7 +67,14 @@ namespace CodeBase.UI.Services.Factory
         {
             foreach (DeviceSpawnerData spawnerData in levelData.DeviceSpawners)
             {
-                DeviceSpawner spawner = _assetProvider.Instantiate(AssetPath.DeviceSpawnerPath, spawnerData.TransformData, parent).GetComponent<DeviceSpawner>();
+                DeviceSpawner spawner = _assetProvider.Instantiate(AssetPath.DeviceSpawnerPath, parent).GetComponent<DeviceSpawner>();
+
+                if (spawnerData.IsUIElement)
+                {
+                    RectTransform rectTransform = spawner.GetComponent<RectTransform>();
+                    spawnerData.RectTransformData.ApplyTo(rectTransform);
+                }
+
                 spawner.Construct(this);
                 spawner.Initialize(spawnerData.DeviceTypeId, spawnerData.DeviceState, spawnerData.CorrectDeviceTypes);
                 spawner.Spawn(spawnerData, spawner.transform);

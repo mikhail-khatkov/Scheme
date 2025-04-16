@@ -24,5 +24,6 @@ namespace CodeBase.Data
 
     public static TransformData AsTransformData(this Transform transform) =>
       new TransformData(transform.position.AsVectorData(), transform.rotation.AsVectorData(), transform.localScale.AsVectorData());
+    
   }
 }

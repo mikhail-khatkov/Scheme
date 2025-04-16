@@ -29,8 +29,14 @@ namespace CodeBase.Editor
                 levelData.LevelKey = SceneManager.GetActiveScene().name;
                 
                 levelData.DeviceSpawners = FindObjectsOfType<DeviceSpawner>()
-                    .Select(x => new DeviceSpawnerData(x.DeviceTypeId, x.DeviceState, x.transform.AsTransformData(),x.CorrectDeviceTypes))
+                    .Select(x => new DeviceSpawnerData(
+                        x.DeviceTypeId,
+                        x.DeviceState,
+                        x.transform,
+                        x.CorrectDeviceTypes
+                    ))
                     .ToList();
+
 
                 levelData.InventoryItems = FindObjectsOfType<UnifiedInventoryItems>()
                     .Select(x => new InventoryItemsData(x.DeviceTypeId, x.Count))

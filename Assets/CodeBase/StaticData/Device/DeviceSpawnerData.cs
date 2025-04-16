@@ -12,14 +12,27 @@ namespace CodeBase.StaticData.Device
         public DeviceTypeId DeviceTypeId;
         public DeviceState DeviceState;
         public TransformData TransformData;
+        public RectTransformData RectTransformData;
+        public bool IsUIElement;
         public List<DeviceTypeId> CorrectDeviceTypes = new();
 
-        public DeviceSpawnerData(DeviceTypeId deviceTypeId, DeviceState deviceState, TransformData transformData, List<DeviceTypeId> correctDeviceType)
+        public DeviceSpawnerData(DeviceTypeId deviceTypeId, DeviceState deviceState, Transform transform, List<DeviceTypeId> correctDeviceTypes)
         {
             DeviceTypeId = deviceTypeId;
             DeviceState = deviceState;
-            TransformData = transformData;
-            CorrectDeviceTypes = new List<DeviceTypeId>(correctDeviceType);
+            CorrectDeviceTypes = new List<DeviceTypeId>(correctDeviceTypes);
+
+            if (transform is RectTransform rectTransform)
+            {
+                RectTransformData = new RectTransformData(rectTransform);
+                IsUIElement = true;
+            }
+            else
+            {
+                TransformData = transform.AsTransformData();
+                IsUIElement = false;
+            }
         }
     }
+
 }
