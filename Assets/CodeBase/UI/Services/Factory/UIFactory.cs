@@ -1,6 +1,7 @@
 ﻿using CodeBase.Infrastructure.AssetManagement;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Infrastructure.Services.SaveLoad;
+using CodeBase.Infrastructure.Services.Telegram;
 using CodeBase.Infrastructure.States;
 using CodeBase.StaticData;
 using CodeBase.StaticData.Device;
@@ -22,15 +23,17 @@ namespace CodeBase.UI.Services.Factory
         private readonly IPersistentProgressService _progressService;
         private readonly IGameStateMachine _stateMachine;
         private readonly ISaveLoadProgressService _saveLoadProgressService;
+        private readonly ITelegramService _telegramService;
 
         public UIFactory(IAssetProvider assetProvider, IStaticDataService staticData,
-            IPersistentProgressService progressService, IGameStateMachine stateMachine, ISaveLoadProgressService saveLoadProgressService)
+            IPersistentProgressService progressService, IGameStateMachine stateMachine, ISaveLoadProgressService saveLoadProgressService, ITelegramService telegramService)
         {
             _assetProvider = assetProvider;
             _staticData = staticData;
             _progressService = progressService;
             _stateMachine = stateMachine;
             _saveLoadProgressService = saveLoadProgressService;
+            _telegramService = telegramService;
         }
 
         public void CreateUIRoot() =>
@@ -58,7 +61,7 @@ namespace CodeBase.UI.Services.Factory
             WindowConfig config = _staticData.ForWindow(windowId);
             WindowBase window = Object.Instantiate(config.Prefab, _uiRoot);
             
-            window.Construct(_progressService, _stateMachine, this, _saveLoadProgressService);
+            window.Construct(_progressService, _stateMachine, this, _saveLoadProgressService, _telegramService);
 
             return window;
         }

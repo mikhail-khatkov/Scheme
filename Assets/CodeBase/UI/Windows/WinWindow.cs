@@ -3,6 +3,7 @@ using CodeBase.Infrastructure.Services.SaveLoad;
 using CodeBase.Infrastructure.States;
 using CodeBase.UI.Services.Factory;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace CodeBase.UI.Windows
@@ -10,6 +11,7 @@ namespace CodeBase.UI.Windows
     public sealed class WinWindow : WindowBase
     {
         public Button ContinueButton;
+        public Button ShareButton;
         public TMP_Text LevelNumberText, LevelNumberTextOutline;
 
         protected override void Initialize()
@@ -20,6 +22,16 @@ namespace CodeBase.UI.Windows
             _progressService.Progress.GameData.ExtendLevel();
             _saveLoadProgressService.SaveProgress();
             ContinueButton.onClick.AddListener(()=>_gameStateMachine.Enter<LoadLevelState,string>($"Level {_progressService.Progress.GameData.CurrentLevel}"));
+
+            if (ShareButton != null)
+                ShareButton.onClick.AddListener(OnShareClicked);
+        }
+
+        private void OnShareClicked()
+        {
+            string url = Application.absoluteURL;
+            string text = $"I completed level {_progressService.Progress.GameData.CurrentLevel - 1} in Scheme! Try it out!";
+            _telegramService?.ShareUrl(url, text);
         }
     }
 }

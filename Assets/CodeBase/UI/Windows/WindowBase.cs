@@ -1,6 +1,7 @@
 using CodeBase.Data;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Infrastructure.Services.SaveLoad;
+using CodeBase.Infrastructure.Services.Telegram;
 using CodeBase.Infrastructure.States;
 using CodeBase.StaticData;
 using CodeBase.UI.Services.Factory;
@@ -16,14 +17,16 @@ namespace CodeBase.UI.Windows
         protected IGameStateMachine _gameStateMachine;
         protected IUIFactory _uiFactory;
         protected ISaveLoadProgressService _saveLoadProgressService;
+        protected ITelegramService _telegramService;
         protected PlayerProgress Progress => _progressService.Progress;
         
-        public void Construct(IPersistentProgressService progressService, IGameStateMachine gameStateMachine, IUIFactory uiFactory, ISaveLoadProgressService saveLoadProgressService)
+        public void Construct(IPersistentProgressService progressService, IGameStateMachine gameStateMachine, IUIFactory uiFactory, ISaveLoadProgressService saveLoadProgressService, ITelegramService telegramService = null)
         {
             _progressService = progressService;
             _gameStateMachine = gameStateMachine;
             _uiFactory = uiFactory;
             _saveLoadProgressService = saveLoadProgressService;
+            _telegramService = telegramService;
         }
 
         private void Awake() => 

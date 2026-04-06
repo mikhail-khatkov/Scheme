@@ -9,11 +9,15 @@ namespace CodeBase.UI.Windows
     {
         public Button PlayBtn;
         public Button CleanBtn;
+        public Button ShareBtn;
 
         protected override void OnAwake()
         {
             PlayBtn.onClick.AddListener(OnPlayBtn);
             CleanBtn.onClick.AddListener(OnCleanBtn);
+
+            if (ShareBtn != null)
+                ShareBtn.onClick.AddListener(OnShareBtn);
         }
 
         private void OnCleanBtn()
@@ -25,6 +29,13 @@ namespace CodeBase.UI.Windows
         private void OnPlayBtn()
         {
             _gameStateMachine.Enter<LoadLevelState, string>($"Level {_progressService.Progress.GameData.CurrentLevel}");
+        }
+
+        private void OnShareBtn()
+        {
+            string url = Application.absoluteURL;
+            string text = "Check out Scheme — a fun puzzle game!";
+            _telegramService?.ShareUrl(url, text);
         }
     }
 }
