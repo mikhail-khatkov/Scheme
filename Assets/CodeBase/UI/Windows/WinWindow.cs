@@ -29,7 +29,7 @@ namespace CodeBase.UI.Windows
 
         private void OnShareClicked()
         {
-            string url = Application.absoluteURL;
+            string url = string.IsNullOrEmpty(Application.absoluteURL) ? "https://t.me" : Application.absoluteURL;
             string text = $"I completed level {_progressService.Progress.GameData.CurrentLevel - 1} in Scheme! Try it out!";
             _telegramService?.ShareUrl(url, text);
         }

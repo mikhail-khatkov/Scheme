@@ -33,7 +33,7 @@ namespace CodeBase.UI.Windows
 
         private void OnShareBtn()
         {
-            string url = Application.absoluteURL;
+            string url = string.IsNullOrEmpty(Application.absoluteURL) ? "https://t.me" : Application.absoluteURL;
             string text = "Check out Scheme — a fun puzzle game!";
             _telegramService?.ShareUrl(url, text);
         }

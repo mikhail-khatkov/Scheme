@@ -1,12 +1,5 @@
 mergeInto(LibraryManager.library, {
 
-    TelegramShareMessage: function (textPtr) {
-        var text = UTF8ToString(textPtr);
-        if (window.Telegram && window.Telegram.WebApp) {
-            window.Telegram.WebApp.shareMessage(text, function () {});
-        }
-    },
-
     TelegramShareUrl: function (urlPtr, textPtr) {
         var url  = UTF8ToString(urlPtr);
         var text = UTF8ToString(textPtr);
